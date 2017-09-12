@@ -1,6 +1,6 @@
 body{
     height: 95.5vh;
-    background-image: url(../KBC/img-1.png);
+    background-image: url(img-1.png);
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -139,7 +139,7 @@ body{
     width: 100%;
     height: 100vh;
     overflow: auto;
-    background-image: url(../KBC/img-1.png);
+    background-image: url(img-1.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
