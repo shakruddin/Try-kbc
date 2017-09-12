@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>KBC Game</title>
+        <link rel="stylesheet" href="KBC Game.css">
+    </head>
+    <audio id="myAudio">
+        <source src="Winning-sound-effect.ogg" type="audio/ogg">
+        <source src="Winning-sound-effect.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <audio id="myAudiotwo">
+        <source src="Pacman%20Game%20Over%20Sound%20%5BSongsx.Pk%5D.ogg" type="audio/ogg">
+        <source src="Pacman%20Game%20Over%20Sound%20%5BSongsx.Pk%5D.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    
+    
+    <body>
+        <center><div id="name"></div></center>
+        <center><div id="Question"></div></center>
+        <center><div id="Prize"></div></center>
+        <div class="Options">
+            <div class="one">
+                <center><div id="myBtn"></div></center>
+                <center><div id="option-2"></div></center>
+            </div>
+            <div class="two">
+                <center><div id="option-3"></div></center>
+                <center><div id="option-4"></div></center>         
+            </div>
+        </div>
+        
+        
+        
+        
+        <div id="myModal" class="modal">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 style="font-family: ubuntu; font-size: 33.2px;">Welcome To <span style="font-size: 40px; font-family: ubuntu; text-shadow: 1px 1px 5px #333;">Kon Banega Crorepati</span></h2>
+            </div>
+            <div class="modal-body">
+              <input id="sonu" name="text" type="text" placeholder="Enter Your Name">
+                <button class="button" id="nane" onclick="sonu()">Submit</button>
+            </div>
+            </div>
+        </div>
+        
+        
+        
+        
+        <!-- The Modal -->
+        <div id="myModalone" class="modalone">
+
+          <!-- Modal content -->
+          <div class="modal-contentone">
+            <div class="modal-headerone">
+              <h2 style="font-family: ubuntu; font-size: 50px;">Welldone You Win</h2>
+            </div>
+            <div class="modal-bodyone">
+              <img src="3HOTELSBOOKING-copy.jpg" alt="..." width="400">
+                <div id="win-prize"></div>
+            </div>
+            <div class="modal-footerone">
+                <button class="button" onclick="sonu()">Next</button>
+            </div>
+          </div>
+
+        </div>
+        
+        
+        
+        
+        <!-- The Modal -->
+        <div id="myModaltwo" class="modaltwo">
+
+          <!-- Modal content -->
+          <div class="modal-contenttwo">
+            <div class="modal-headertwo">
+              <h2 style="font-family: ubuntu; font-size: 50px;">You Lost</h2>
+            </div>
+            <div class="modal-bodytwo">
+              <img src="warning%20(1).png" alt="..." width="150">
+            </div>
+            <div class="modal-footertwo">
+                <a href="KBC%20Game.html"><button class="button">Restart</button></a>
+            </div>
+          </div>
+
+        </div>
+        
+        <script>
+            
+            
+            
+            var Question = ["To respect whose word did the five Pandavas marry Draupadi ?", "Which of these is the title of a fantasy novel by Devkinandan Khatri ?", "Under a campaign run by UNICEF and Government of India, Aamir Khan has been promoting awareness against which of these  ?", "Who is the only Indian to have won a medal in Women's Singles at the World Badminton Championships ?", "Who has been the longest serving chief minister of Rajasthan ?", "From which country did India buy an aircraft carrier which was renamed as INS Vikramaditya ?", "Which of these freedom fighters was the English language secretary to Mahatma Gandhi for 16 years ?", "Which of these dishes are usually 'tari ya ras waali' and 'sukhi' ?", "The end of what service is referred to in this newspaper headline : 'Dot, dash, full stop service ends July 15 ' ?", "Which of these festivals is also known as 'Khichdi Parv' in northern India ?", "Douglas Engelbert, who passed away in 2013, is credited as the inventor of which of these products ?", "In 1850, the first experimental electric telegraph line in India was set up between Calcutta and which place ?", "Which of these persons has not walked on the Moon ?", "With Which of these cards would you associate the phrase 'Aam Aadmi ka Adhikaar' ?", "Which team retained the ashes Trophy in 2013 ?"];
+            
+            var listA = ["Krishna", "Chandraprabha", "Polio", "Jwala Gupta", "Mohan Lal Sukhadia", "France", "Hansa Mehta", "Raita", "Trunk Call", "Vaishakhi", "Mobile Phone", "Diamond Harbour", "Charles Duke", "PAN Card", "Australia"];
+            
+             var listB = ["Indra", "Chandragupta", "HIV/AIDS", "P V Sindhu", "Bhairon Singh Shekhawat", "Russia", "Rajkumari Amrit Kaur", "Papdi", "Telegram", "Makar Sankranti", "Computer Mouse", "Darjeeling", "James A Lovell", "Voter ID Card", "South Africa"];
+            
+            var listC = ["Kunti", "Chandrakanta", "Family Planning", "Saina Nehwal", "Ashok Gehlot", "England", "Sarojini Naidu", "Sabji", "Post Card", "Vasant Panchami", "Bluetooth Mouse", "Murshidabad", "Alan Bean", "AADHAR Card", "West Indies"];
+            
+            var listD = ["Madri", "Chandraabha", "Malnutrition", "Ashwini Ponnappa", "Vasundhara Raje Sindia", "Germany",
+                     "Sushila Nayyar", "Pulaav", "Toy Train", "Narak Chaturdashi", "Digital camera", "Dhaka", "Pete Conrad", "Ration Card", "England"];
+            
+            var no = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+            
+            
+            var prize = [1000, 2000, 3000, 5000, 10000, 20000, 40000, 80000, 160000, 320000, 640000, 1250000, 2500000, 5000000, 10000000];
+            
+           var ans = ["Kunti", "Chandrakanta", "Malnutrition", "P V Sindhu", "Mohan Lal Sukhadia", "Russia", "Rajkumari Amrit Kaur", "Papdi", "Telegram", "Makar Sankranti", "Computer Mouse", "Darjeeling", "James A Lovell", "AADHAR Card", "England"]; 
+            
+        
+            var answer1 = document.getElementById('myBtn');
+            var answer3 = document.getElementById('option-2');
+            var answer2 = document.getElementById('option-3');
+            var answer4 = document.getElementById('option-4');
+            var modal = document.getElementById('myModal');
+            var modalone = document.getElementById('myModalone');
+            var modaltwo = document.getElementById('myModaltwo');
+            window.modal.style.display = "block";
+            
+            var counter = 0;
+            
+            function sonu() {
+                var name = document.getElementById('sonu').value;
+                if(name == ""){
+                    document.getElementById('sonu').style.border = "2px solid red"
+                    return false;
+                }
+                document.getElementById('name').innerHTML = "Mr/Ms. " + name;
+                modal.style.display = "none";
+                
+                var index = (counter%Question.length);
+                counter = counter + 1;
+                
+                document.getElementById('Question').innerHTML = "Q - " + no[index] + " " + Question[index];
+                document.getElementById('Prize').innerHTML ="For $ " + prize[index];
+                var haal = document.getElementById('myBtn').innerHTML = "A. " + listA[index];
+                document.getElementById('option-3').innerHTML = "B. " + listB[index];
+                document.getElementById('option-2').innerHTML = "C. " + listC[index];
+                document.getElementById('option-4').innerHTML = "D. " + listD[index];
+                document.getElementById('win-prize').innerHTML = "Wining Prize $ " + prize[index];
+                answer1.style.background = "rgba(80,2,140,0.9)";
+                answer2.style.background = "rgba(80,2,140,0.9)";
+                answer3.style.background = "rgba(80,2,140,0.9)";
+                answer4.style.background = "rgba(80,2,140,0.9)";
+                var haal1 = listA[index];
+                var haal2 = listB[index];
+                var haal3 = listC[index];
+                var haal4 = listD[index];
+                modalone.style.display = "none";
+                
+               answer1.onclick = function() {
+                    if(haal1 === ans[index]){
+                        answer1.style.background = "green";
+                        modalone.style.display = "block";
+                        var x = document.getElementById("myAudio");
+                        x.play();
+                    }else{
+                       answer1.style.background = "red";
+                       modaltwo.style.display = "block";
+                       var x = document.getElementById("myAudiotwo");
+                       x.play();
+                    }
+               }
+                   
+                   answer2.onclick = function() {
+                    if(haal2 === ans[index]){
+                        answer2.style.background = "green";
+                        modalone.style.display = "block";
+                        var x = document.getElementById("myAudio");
+                        x.play();
+                    }else{
+                       answer2.style.background = "red";
+                       modaltwo.style.display = "block";
+                       var x = document.getElementById("myAudiotwo");
+                       x.play();
+                    }
+                   
+                }
+                   
+                   answer3.onclick = function() {
+                    if(haal3 === ans[index]){
+                        answer3.style.background = "green";
+                        modalone.style.display = "block";
+                        var x = document.getElementById("myAudio");
+                        x.play();
+                    }else{
+                       answer3.style.background = "red";
+                       modaltwo.style.display = "block";
+                       var x = document.getElementById("myAudiotwo");
+                       x.play();
+                    }
+                   
+                }
+                   
+                   
+                   answer4.onclick = function() {
+                    if(haal4 === ans[index]){
+                        answer4.style.background = "green";
+                        modalone.style.display = "block";
+                        var x = document.getElementById("myAudio");
+                        x.play();
+                    }else{
+                       answer4.style.background = "red";
+                       modaltwo.style.display = "block";
+                       var x = document.getElementById("myAudiotwo");
+                       x.play();
+                    }
+                   
+                }
+                
+            }
+            
+     
+            
+        </script>   
+    </body>
+</html>
